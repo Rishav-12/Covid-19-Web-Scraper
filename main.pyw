@@ -31,5 +31,5 @@ if __name__ == "__main__":
 		contents = [data[i]+data[i+1] for i in range(0, 5, 2)]
 		notifyMe("\n".join(contents)) # Display the information in the desired format
 
-	except:
+	except Exception:
 		notifyMe("Something went wrong. Could not fetch data")
