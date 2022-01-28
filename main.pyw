@@ -5,10 +5,13 @@ from bs4 import BeautifulSoup
 
 def notifyMe(message): # Function which notifies us every 3 hours
 	while True:
-		notification.notify(title = "COVID-19 Updates India",
-							message = message,
-							app_icon = "covid.ico",
-							timeout = 10)
+		notification.notify(
+			title = "COVID-19 Updates India",
+			message = message,
+			app_icon = "covid.ico",
+			timeout = 10
+			)
+
 		time.sleep(3*60*60)
 
 if __name__ == "__main__":
