@@ -11,3 +11,6 @@ Scrape Covid-19 related data from a website
 * It scrapes the website https://www.worldometers.info/coronavirus/ to collect information about a given country's covid data
 * Then sends a desktop notification with that data
 * I set the country to India, but you can definitely change that to your country
+
+#### New idea to work on
+Build a front-end for this probably using [Chart.js](https://www.chartjs.org/)
