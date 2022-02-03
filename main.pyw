@@ -2,6 +2,7 @@ from plyer import notification
 import time
 import requests
 from bs4 import BeautifulSoup
+import json
 
 def notifyMe(message): # Function which notifies us every 3 hours
 	while True:
@@ -28,11 +29,26 @@ if __name__ == "__main__":
 			x.remove("")
 
 		data = []
+		# Cleaning the data to filter out only the information which is needed
+		data.extend(x[2].split(": "))
 		for i in range(4, 10):
-			data.append(x[i].strip()) # Cleaning the data to filter out only the information which is needed
+			data.append(x[i].strip())
 
-		contents = [data[i]+data[i+1] for i in range(0, 5, 2)]
-		notifyMe("\n".join(contents)) # Display the information in the desired format
+		covid_data = {}
+
+		# Building a dictionary
+		covid_data["last updated"] = data[1]
+		covid_data["cases"] = data[3]
+		covid_data["deaths"] = data[5]
+		covid_data["recovered"] = data[7]
+
+		with open("covid_data.json", "w") as file:
+			json.dump(covid_data, file)
+
+		# contents = [data[i]+data[i+1] for i in range(0, 5, 2)]
+		# print("\n".join(contents))
+		# notifyMe("\n".join(contents)) # Display the information in the desired format
 
 	except Exception:
-		notifyMe("Something went wrong. Could not fetch data")
+		print("Something went wrong. Could not fetch data")
+		# notifyMe("Something went wrong. Could not fetch data")
