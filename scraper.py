@@ -1,21 +1,8 @@
-from plyer import notification
-import time
 import requests
 from bs4 import BeautifulSoup
 import json
 
-def notifyMe(message): # Function which notifies us every 3 hours
-	while True:
-		notification.notify(
-			title = "COVID-19 Updates India",
-			message = message,
-			app_icon = "covid.ico",
-			timeout = 10
-			)
-
-		time.sleep(3*60*60)
-
-if __name__ == "__main__":
+def scrape():
 
 	URL = "https://www.worldometers.info/coronavirus/country/india/"
 	try:
@@ -42,13 +29,17 @@ if __name__ == "__main__":
 		covid_data["deaths"] = data[5]
 		covid_data["recovered"] = data[7]
 
-		with open("covid_data.json", "w") as file:
-			json.dump(covid_data, file)
-
-		# contents = [data[i]+data[i+1] for i in range(0, 5, 2)]
-		# print("\n".join(contents))
-		# notifyMe("\n".join(contents)) # Display the information in the desired format
+		return covid_data
 
 	except Exception:
+		return None
+
+if __name__ == "__main__":
+	covid_data = scrape()
+
+	if covid_data is not None:
+		print("Fetched data...dumping to file")
+		with open("covid_data.json", "w") as file:
+			json.dump(covid_data, file)
+	else:
 		print("Something went wrong. Could not fetch data")
-		# notifyMe("Something went wrong. Could not fetch data")
