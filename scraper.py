@@ -2,9 +2,9 @@ import requests
 from bs4 import BeautifulSoup
 import json
 
-def scrape():
+def scrape(country):
 
-	URL = "https://www.worldometers.info/coronavirus/country/india/"
+	URL = f"https://www.worldometers.info/coronavirus/country/{country}/"
 	try:
 		r = requests.get(URL).text # Requesting some data from the given url
 		soup = BeautifulSoup(r, 'html.parser')
@@ -25,6 +25,7 @@ def scrape():
 
 		# Building a dictionary
 		covid_data["last updated"] = data[1]
+		covid_data["country"] = country.title()
 		covid_data["cases"] = data[3]
 		covid_data["deaths"] = data[5]
 		covid_data["recovered"] = data[7]
@@ -35,7 +36,8 @@ def scrape():
 		return None
 
 if __name__ == "__main__":
-	covid_data = scrape()
+	country = input("Country you want to search ")
+	covid_data = scrape(country)
 
 	if covid_data is not None:
 		print("Fetched data...dumping to file")

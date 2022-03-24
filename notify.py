@@ -15,7 +15,7 @@ def notifyMe(message): # Function which notifies us every 3 hours
 		time.sleep(3*60*60)
 
 if __name__ == "__main__":
-	json_data = scrape()
+	json_data = scrape("india")
 
 	if json_data is not None:
 		content = f'''
