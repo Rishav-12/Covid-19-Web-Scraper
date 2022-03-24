@@ -8,7 +8,7 @@ This is now a consumable API
 Check the [requirements.txt](https://github.com/Rishav-12/Covid-19-Web-Scraper/blob/master/requirements.txt) file
 
 ### Description
-* There are 3 python files
+* Get data from any country using the cli script or the API
 
 * [scraper.py](https://github.com/Rishav-12/Covid-19-Web-Scraper/blob/master/scraper.py) has a helper function that scrapes the website https://www.worldometers.info/coronavirus/ to collect information about a given country's covid data, then returns it as a dictionary
 
@@ -16,7 +16,6 @@ Check the [requirements.txt](https://github.com/Rishav-12/Covid-19-Web-Scraper/b
 
 * [app.py](https://github.com/Rishav-12/Covid-19-Web-Scraper/blob/master/app.py) serves the scraped data in the form of an API
 
-* I set the country to India, but you can change that to any country
 
 ### Usage
 * You can run scraper.py to write the data to a json file
