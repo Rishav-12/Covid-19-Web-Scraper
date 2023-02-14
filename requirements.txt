@@ -10,7 +10,7 @@ anyio==3.5.0
 fastapi==0.73.0
 pydantic==1.9.0
 sniffio==1.2.0
-starlette==0.17.1
+starlette==0.25.0
 typing-extensions==4.0.1
 asgiref==3.5.0
 click==8.0.3
