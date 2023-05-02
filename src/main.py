@@ -1,6 +1,6 @@
 from fastapi import FastAPI, Path
 
-from scraper import scrape
+from .scraper import scrape
 
 app = FastAPI()
 
