@@ -1,26 +1,15 @@
 # Covid-19-Web-Scraper
-Scrape Covid-19 related data from a website
-
-### Updates
-This is now a consumable API
+An API that serves Covid-19 related data
 
 ### Requirements
 Check the [requirements.txt](https://github.com/Rishav-12/Covid-19-Web-Scraper/blob/master/requirements.txt) file
 
 ### Description
-* Get data from any country using the cli script or the API
-
-* [scraper.py](https://github.com/Rishav-12/Covid-19-Web-Scraper/blob/master/scraper.py) has a helper function that scrapes the website https://www.worldometers.info/coronavirus/ to collect information about a given country's covid data, then returns it as a dictionary
-
-* [notify.py](https://github.com/Rishav-12/Covid-19-Web-Scraper/blob/master/notify.py) uses the scraped data and sends a desktop notification to the user
-
-* [app.py](https://github.com/Rishav-12/Covid-19-Web-Scraper/blob/master/app.py) serves the scraped data in the form of an API
-
+Country-specific data scraped from https://www.worldometers.info/coronavirus/
 
 ### Usage
-* You can run scraper.py to write the data to a json file
-* Or run the notify.py file if you want to send desktop notification updates with the data
-* Or maybe use the API to do API stuff
+* Run scraper.py to write the data to a json file
+* Use the API to serve the data at a URL
 
 #### Running the API locally
 ```bash
@@ -29,7 +18,7 @@ pip install -r requirements.txt
 
 to install dependencies
 ```bash
-uvicorn app:app --reload
+uvicorn src.main:app --reload
 ```
 
 to run the API server
